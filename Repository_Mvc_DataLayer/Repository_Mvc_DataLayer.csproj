@@ -48,11 +48,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\DataDbContext.cs" />
+    <Compile Include="DataEntity\Product.cs" />
+    <Compile Include="Migrations\201901141338015_Initial_Create_Table_Product.cs" />
+    <Compile Include="Migrations\201901141338015_Initial_Create_Table_Product.Designer.cs">
+      <DependentUpon>201901141338015_Initial_Create_Table_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901141338015_Initial_Create_Table_Product.resx">
+      <DependentUpon>201901141338015_Initial_Create_Table_Product.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
