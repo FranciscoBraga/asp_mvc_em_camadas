@@ -29,12 +29,12 @@ namespace Repository_Mvc_Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Erros/Http404.cshtml");
             }
             Product product = productsApplication.FindProduct(id);
             if (product == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Erros/Http404.cshtml");
             }
             return View(product);
         }
@@ -66,12 +66,12 @@ namespace Repository_Mvc_Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return  RedirectToAction("Erros/Http404.cshtml");
             }
             Product product = productsApplication.FindProduct(id);
             if (product == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Erros/Http404.cshtml");
             }
             return View(product);
         }
@@ -96,12 +96,12 @@ namespace Repository_Mvc_Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Erros/Http404.cshtml"); 
             }
             Product product = productsApplication.FindProduct(id);
             if (product == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Erros/Http404.cshtml");
             }
             return View(product);
         }
