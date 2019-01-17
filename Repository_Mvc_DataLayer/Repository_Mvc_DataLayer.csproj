@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201901141338015_Initial_Create_Table_Product.Designer.cs">
       <DependentUpon>201901141338015_Initial_Create_Table_Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901172004023_Update_Table_Products.cs" />
+    <Compile Include="Migrations\201901172004023_Update_Table_Products.Designer.cs">
+      <DependentUpon>201901172004023_Update_Table_Products.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataRepositoryImplemetation\IProductRepositoryImplementation.cs" />
@@ -67,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901141338015_Initial_Create_Table_Product.resx">
       <DependentUpon>201901141338015_Initial_Create_Table_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901172004023_Update_Table_Products.resx">
+      <DependentUpon>201901172004023_Update_Table_Products.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
