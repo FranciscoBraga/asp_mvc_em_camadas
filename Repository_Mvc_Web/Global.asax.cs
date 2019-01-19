@@ -32,7 +32,7 @@ namespace Repository_Mvc_Web
             var routeData = new RouteData();
             routeData.Values["controller"] = "errors";
             routeData.Values["exception"] = ex;
-            routeData.Values["action"] = "http500";
+            routeData.Values["action"] = "Http500";
 
             if (httpException != null)
             {

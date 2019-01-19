@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 using Repository_Mvc_ApplicationLayer.ApplicationImplementation;
 using Repository_Mvc_DataLayer.DataContext;
 using Repository_Mvc_DataLayer.DataEntity;
+using Repository_Mvc_Web.Model.ViewModel;
 
 namespace Repository_Mvc_Web.Controllers
 {
@@ -50,10 +52,35 @@ namespace Repository_Mvc_Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Weight,Price")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Name,Weight,Price")] Product product, HttpPostedFileBase arquivo)
         {
+            string imagem = "";
+            string caminho = "";
+            if ( arquivo.ContentLength <0)
+            {
+                ViewBag.Message = "Selecione um Arquivo para upload";
+                return View();
+            }
+            
+
+            
             if (ModelState.IsValid)
             {
+                try
+                {
+                     imagem = arquivo.FileName;
+                    caminho = @"D:\VisualStudio\Repository_Mvc\ApoioLayer\img\"+imagem;
+                    productsApplication.SaveArchive(caminho, arquivo);
+
+                   
+                }
+                catch (IOException )
+                {
+
+                    return RedirectToAction("Erros/Http500.cshtml");
+                }
+
+                product.PathImage = imagem;
                 productsApplication.AddProduct(product);
                 return RedirectToAction("Index");
             }

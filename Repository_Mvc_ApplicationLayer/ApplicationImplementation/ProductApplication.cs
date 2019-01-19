@@ -3,7 +3,7 @@ using Repository_Mvc_DataLayer.DataRepositoryImplemetation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Web;
 
 namespace Repository_Mvc_ApplicationLayer.ApplicationImplementation
 {
@@ -86,6 +86,19 @@ namespace Repository_Mvc_ApplicationLayer.ApplicationImplementation
             {
                 throw ex;
 
+            }
+
+        }
+
+        public void SaveArchive(string path, HttpPostedFileBase archive)
+        {
+            try
+            {
+                productRespositotryImplementation.SaveArchive(path,archive);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
